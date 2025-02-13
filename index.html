@@ -412,21 +412,21 @@
                 <div class="form-check mb-2">
                   <input class="form-check-input" type="checkbox" id="outputToDisplay" />
                   <label class="form-check-label" for="outputToDisplay"
-                    >Output to Display</label
+                    >To Display</label
                   >
                 </div>
 
                 <div class="form-check mb-2">
                   <input class="form-check-input" type="checkbox" id="outputToPrinter" />
                   <label class="form-check-label" for="outputToPrinter"
-                    >Output to Printer</label
+                    >To Printer</label
                   >
                 </div>
 
                 <div class="form-check mb-2">
                   <input class="form-check-input" type="checkbox" id="outputToEmail" />
                   <label class="form-check-label" for="outputToEmail"
-                    >Output to Email</label
+                    >To Email</label
                   >
                 </div>
               </div>
@@ -1034,56 +1034,63 @@
             <input class="form-check-input" type="checkbox" id="customerAlwaysPrint" />
             <label class="form-check-label" for="customerAlwaysPrint">Always Print</label>
             </div>
-    
-            <!-- Transacciones habilitadas -->
+            <div class="row">
+                <div class="col-6">
+                    <!-- Transacciones habilitadas -->
             <div class="mb-3">
-            <p class="fw-bold">Enabled Transactions:</p>
-            <div class="form-check">
-                <input class="form-check-input customer-transaction" type="checkbox" id="customerPurchase" checked />
-                <label class="form-check-label" for="customerPurchase">Purchase</label>
+                <p class="fw-bold">Enabled on Transactions:</p>
+                <div class="form-check">
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerPurchase" checked />
+                    <label class="form-check-label" for="customerPurchase">Purchase</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerReturn" checked />
+                    <label class="form-check-label" for="customerReturn">Return</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerVoid" checked />
+                    <label class="form-check-label" for="customerVoid">Void</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerIssueVoucher" checked />
+                    <label class="form-check-label" for="customerIssueVoucher">Issue Voucher</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerRedeemVoucher" checked />
+                    <label class="form-check-label" for="customerRedeemVoucher">Redeem Voucher</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerValidateTickets" checked />
+                    <label class="form-check-label" for="customerValidateTickets">Validate Tickets</label>
+                </div>
             </div>
-            <div class="form-check">
-                <input class="form-check-input customer-transaction" type="checkbox" id="customerReturn" checked />
-                <label class="form-check-label" for="customerReturn">Return</label>
+                </div>
+                <div class="col-6">
+                   <!-- Métodos de pago habilitados -->
+                    <div class="mb-3">
+                        <p class="fw-bold">Enabled on Payment Methods:</p>
+                        <div class="form-check">
+                            <input class="form-check-input customer-payment" type="checkbox" id="customerCash" />
+                            <label class="form-check-label" for="customerCash">Cash</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input customer-payment" type="checkbox" id="customerBono" />
+                            <label class="form-check-label" for="customerBono">Bono</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input customer-payment" type="checkbox" id="customerCredit" />
+                            <label class="form-check-label" for="customerCredit">Credit</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input customer-payment" type="checkbox" id="customerCustomMethod" />
+                            <label class="form-check-label" for="customerCustomMethod">Custom method</label>
+                        </div>
+                    </div> 
+                </div>
             </div>
-            <div class="form-check">
-                <input class="form-check-input customer-transaction" type="checkbox" id="customerVoid" checked />
-                <label class="form-check-label" for="customerVoid">Void</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input customer-transaction" type="checkbox" id="customerIssueVoucher" checked />
-                <label class="form-check-label" for="customerIssueVoucher">Issue Voucher</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input customer-transaction" type="checkbox" id="customerRedeemVoucher" checked />
-                <label class="form-check-label" for="customerRedeemVoucher">Redeem Voucher</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input customer-transaction" type="checkbox" id="customerValidateTickets" checked />
-                <label class="form-check-label" for="customerValidateTickets">Validate Tickets</label>
-            </div>
-            </div>
+            
     
-            <!-- Métodos de pago habilitados -->
-            <div class="mb-3">
-            <p class="fw-bold">Enabled Payment Methods:</p>
-            <div class="form-check">
-                <input class="form-check-input customer-payment" type="checkbox" id="customerCash" />
-                <label class="form-check-label" for="customerCash">Cash</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input customer-payment" type="checkbox" id="customerBono" />
-                <label class="form-check-label" for="customerBono">Bono</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input customer-payment" type="checkbox" id="customerCredit" />
-                <label class="form-check-label" for="customerCredit">Credit</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input customer-payment" type="checkbox" id="customerCustomMethod" />
-                <label class="form-check-label" for="customerCustomMethod">Custom method</label>
-            </div>
-            </div>
+            
     
             <!-- Opciones de recibo -->
             <div class="mb-3">
@@ -1137,56 +1144,63 @@
             <input class="form-check-input" type="checkbox" id="merchantAlwaysPrint" />
             <label class="form-check-label" for="merchantAlwaysPrint">Always Print</label>
             </div>
+            <div class="row">
+                <div class="col-6">
+                    <!-- Transacciones habilitadas -->
+                    <div class="mb-3">
+                        <p class="fw-bold">Enabled on Transactions:</p>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantPurchase" />
+                            <label class="form-check-label" for="merchantPurchase">Purchase</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantReturn" />
+                            <label class="form-check-label" for="merchantReturn">Return</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantVoid" />
+                            <label class="form-check-label" for="merchantVoid">Void</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantIssueVoucher" />
+                            <label class="form-check-label" for="merchantIssueVoucher">Issue Voucher</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantRedeemVoucher" />
+                            <label class="form-check-label" for="merchantRedeemVoucher">Redeem Voucher</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantValidateTickets" />
+                            <label class="form-check-label" for="merchantValidateTickets">Validate Tickets</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <!-- Métodos de pago habilitados -->
+                    <div class="mb-3">
+                        <p class="fw-bold">Enabled on Payment Methods:</p>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-payment" type="checkbox" id="merchantCash" />
+                            <label class="form-check-label" for="merchantCash">Cash</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-payment" type="checkbox" id="merchantBono" />
+                            <label class="form-check-label" for="merchantBono">Bono</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-payment" type="checkbox" id="merchantCredit" />
+                            <label class="form-check-label" for="merchantCredit">Credit</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input merchant-payment" type="checkbox" id="merchantCustomMethod" />
+                            <label class="form-check-label" for="merchantCustomMethod">Custom method</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
     
-            <!-- Transacciones habilitadas -->
-            <div class="mb-3">
-            <p class="fw-bold">Enabled Transactions:</p>
-            <div class="form-check">
-                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantPurchase" />
-                <label class="form-check-label" for="merchantPurchase">Purchase</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantReturn" />
-                <label class="form-check-label" for="merchantReturn">Return</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantVoid" />
-                <label class="form-check-label" for="merchantVoid">Void</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantIssueVoucher" />
-                <label class="form-check-label" for="merchantIssueVoucher">Issue Voucher</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantRedeemVoucher" />
-                <label class="form-check-label" for="merchantRedeemVoucher">Redeem Voucher</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantValidateTickets" />
-                <label class="form-check-label" for="merchantValidateTickets">Validate Tickets</label>
-            </div>
-            </div>
-    
-            <!-- Métodos de pago habilitados -->
-            <div class="mb-3">
-            <p class="fw-bold">Enabled Payment Methods:</p>
-            <div class="form-check">
-                <input class="form-check-input merchant-payment" type="checkbox" id="merchantCash" />
-                <label class="form-check-label" for="merchantCash">Cash</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-payment" type="checkbox" id="merchantBono" />
-                <label class="form-check-label" for="merchantBono">Bono</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-payment" type="checkbox" id="merchantCredit" />
-                <label class="form-check-label" for="merchantCredit">Credit</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input merchant-payment" type="checkbox" id="merchantCustomMethod" />
-                <label class="form-check-label" for="merchantCustomMethod">Custom method</label>
-            </div>
-            </div>
+            
     
             <!-- Opciones de recibo -->
             <div class="mb-3">
