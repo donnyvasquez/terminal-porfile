@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terminal Profile</title>
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    defer
+  ></script>
+</head>
+<body class="bg-body-secondary">
+  <div class="container mt-4">
+    <div class="accordion" id="terminalProfileAccordion">
+
+      <!-- General Info -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGeneral">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseGeneral"
+            aria-expanded="true"
+            aria-controls="collapseGeneral"
+          >
+            General Info
+          </button>
+        </h2>
+        <div
+          id="collapseGeneral"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingGeneral"
+        >
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col-6">
+                <label for="profileName" class="form-label">Profile Name *</label>
+                <input type="text" id="profileName" class="form-control" required />
+              </div>
+              <div class="col-6">
+                <label for="timeZone" class="form-label">Time Zone *</label>
+                <select id="timeZone" class="form-select" required>
+                  <option value="">Select Time Zone</option>
+                  <option value="EST">Eastern Standard Time (EST)</option>
+                  <option value="PST">Pacific Standard Time (PST)</option>
+                </select>
+              </div>
+              <hr class="mt-4 text-body-tertiary" />
+              <div class="col">
+                <label for="inputGroupFile03" class="form-label"
+                  >Use custom logo on tickets</label
+                >
+                <div class="d-flex gap-3 align-items-center">
+                  <svg
+                    style="border-style: dashed;"
+                    class="bd-placeholder-img img-thumbnail"
+                    width="96"
+                    height="96"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Logo preview"
+                    preserveAspectRatio="xMidYMid slice"
+                    focusable="false"
+                  >
+                    <rect width="100%" height="100%" fill="#868e96"></rect>
+                    <text x="10%" y="50%" fill="#dee2e6" dy=".3em">Preview</text>
+                  </svg>
+                  <div class="input-group">
+                    <input
+                      type="file"
+                      class="form-control h-100"
+                      id="inputGroupFile03"
+                      aria-describedby="inputGroupFileAddon03"
+                      aria-label="Upload"
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr class="mt-4 text-body-tertiary" />
+              <div class="col">
+                <label class="d-block mb-2">Places where this profile can be used</label>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="terminal"
+                    value="terminal"
+                  />
+                  <label class="form-check-label" for="terminal">Terminal</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="virtualpos"
+                    value="virtualpos"
+                  />
+                  <label class="form-check-label" for="virtualpos">Virtual POS</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="ecommerce"
+                    value="ecommerce"
+                  />
+                  <label class="form-check-label" for="ecommerce">e-commerce</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="api" value="api" />
+                  <label class="form-check-label" for="api">API</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Transaction Functions -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCoreFunctions">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseCoreFunctions"
+            aria-expanded="false"
+            aria-controls="collapseCoreFunctions"
+          >
+            Core Transaction Functions
+          </button>
+        </h2>
+        <div
+          id="collapseCoreFunctions"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingCoreFunctions"
+        >
+          <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="purchaseItem" />
+              <label class="form-check-label" for="purchaseItem">Purchase Item</label>
+            </div>
+
+            <!-- Void as a Switch -->
+            <div class="form-check form-switch mt-3">
+              <input class="form-check-input" type="checkbox" id="voidSwitch" />
+              <label class="form-check-label" for="voidSwitch">Void</label>
+            </div>
+            <div id="voidOptions" style="display: none;">
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="allTransactions" />
+                <label class="form-check-label" for="allTransactions"
+                  >All Transactions</label
+                >
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="lastTransaction" />
+                <label class="form-check-label" for="lastTransaction"
+                  >Last Transaction</label
+                >
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="codeRequired" />
+                <label class="form-check-label" for="codeRequired"
+                  >Code Required</label
+                >
+              </div>
+            </div>
+
+            <!-- Grant Access Switch -->
+            <div class="form-check form-switch mt-3">
+              <input class="form-check-input" type="checkbox" id="ticketValidation" />
+              <label class="form-check-label" for="ticketValidation"
+                >Grant access to this profile for validating selected tickets</label
+              >
+            </div>
+            <div id="ticketValidationOptions" style="display: none;">
+              <!-- Botón para abrir el modal -->
+              <button
+                class="btn btn-primary mt-2"
+                id="openTicketModal"
+                data-bs-toggle="modal"
+                data-bs-target="#ticketModal"
+              >
+                Select Tickets
+              </button>
+
+              <!-- Listado de tickets seleccionados -->
+              <ul class="list-group mt-2" id="selectedTicketsList"></ul>
+            </div>
+
+            <!-- Voucher Properties Switch -->
+            <div class="form-check form-switch mt-3">
+              <input class="form-check-input" type="checkbox" id="voucherSwitch" />
+              <label class="form-check-label" for="voucherSwitch"
+                >Activate Voucher properties in this terminal profile</label
+              >
+            </div>
+            <div id="voucherOptions" style="display: none;">
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="issueVoucher" />
+                <label class="form-check-label" for="issueVoucher">Issue Voucher</label>
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="redemVoucher" />
+                <label class="form-check-label" for="redemVoucher">Redem Voucher</label>
+              </div>
+              <div class="form-check mt-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="acceptPaymentAtIssuance"
+                />
+                <label class="form-check-label" for="acceptPaymentAtIssuance"
+                  >Accept Full Payment at Issuance</label
+                >
+              </div>
+              <div class="form-check mt-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="acceptPaymentAtRedemption"
+                />
+                <label class="form-check-label" for="acceptPaymentAtRedemption"
+                  >Accept Full Payment at Redemption</label
+                >
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="printTickets" />
+                <label class="form-check-label" for="printTickets"
+                  >Print Tickets</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Options -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPaymentOptions">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsePaymentOptions"
+            aria-expanded="false"
+            aria-controls="collapsePaymentOptions"
+          >
+            Payment Options
+          </button>
+        </h2>
+        <div
+          id="collapsePaymentOptions"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingPaymentOptions"
+        >
+          <div class="accordion-body">
+            <p><strong>Payment methods enabled on this Terminal Profile</strong></p>
+
+            <!-- Las primeras 3 opciones en columnas -->
+            <div class="row mb-3">
+              <div class="col">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="cashPayment" />
+                  <label class="form-check-label" for="cashPayment">Cash</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="creditCardPayment" />
+                  <label class="form-check-label" for="creditCardPayment"
+                    >Credit card</label
+                  >
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="bonoPayment" />
+                  <label class="form-check-label" for="bonoPayment">Bono</label>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <!-- Sección "Custom method" -->
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="customPayment" />
+              <label class="form-check-label" for="customPayment">Custom method</label>
+            </div>
+
+            <!-- Campos que aparecen al activar "Custom method" -->
+            <div id="customPaymentFields" style="display: none;">
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="customPaymentName" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="customPaymentName"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check mt-4">
+                    <input class="form-check-input" type="checkbox" id="requiredComment" />
+                    <label class="form-check-label" for="requiredComment"
+                      >Required comment</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terminal Options -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTerminalOptions">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTerminalOptions"
+            aria-expanded="false"
+            aria-controls="collapseTerminalOptions"
+          >
+            Terminal Options
+          </button>
+        </h2>
+        <div
+          id="collapseTerminalOptions"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingTerminalOptions"
+        >
+          <div class="accordion-body">
+            <div class="row">
+              <!-- Columna de opciones generales -->
+              <div class="col-6">
+                <p class="fw-bold">General</p>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="groupByCategory" />
+                  <label class="form-check-label" for="groupByCategory"
+                    >Group By Category</label
+                  >
+                </div>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="trainingMode" />
+                  <label class="form-check-label" for="trainingMode"
+                    >Training Mode</label
+                  >
+                </div>
+
+                <p class="fw-bold mt-4">Logo Options</p>
+
+                <div class="form-check mb-2">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="logoOption"
+                        id="defaultLogo"
+                        value="default"
+                        checked
+                    />
+                    <label class="form-check-label" for="defaultLogo">
+                        Default (Defined from ticket)
+                    </label>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="logoOption"
+                        id="forceShowLogo"
+                        value="show"
+                    />
+                    <label class="form-check-label" for="forceShowLogo">
+                        Force show logo
+                    </label>
+                </div>
+
+                <div class="form-check mb-2">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="logoOption"
+                        id="forceHideLogo"
+                        value="hide"
+                    />
+                    <label class="form-check-label" for="forceHideLogo">
+                        Force hide logo
+                    </label>
+                </div>
+
+              </div>
+
+              <!-- Columna de opciones de salida (outputs) -->
+              <div class="col-6">
+                <p class="fw-bold">Outputs</p>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="outputToDisplay" />
+                  <label class="form-check-label" for="outputToDisplay"
+                    >Output to Display</label
+                  >
+                </div>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="outputToPrinter" />
+                  <label class="form-check-label" for="outputToPrinter"
+                    >Output to Printer</label
+                  >
+                </div>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="outputToEmail" />
+                  <label class="form-check-label" for="outputToEmail"
+                    >Output to Email</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Information -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCustomerInfo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseCustomerInfo"
+            aria-expanded="false"
+            aria-controls="collapseCustomerInfo"
+          >
+            Customer Information
+          </button>
+        </h2>
+        <div
+          id="collapseCustomerInfo"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingCustomerInfo"
+          data-bs-parent="#terminalProfileAccordion"
+        >
+          <div class="accordion-body">
+            <!-- Instructional text -->
+            <p>
+              In this section you can select which information fields will be requested from the client
+              in the terminal. Press
+              <strong>“Add Options”</strong> to open the list of available fields.
+              Once selected, they will appear below. If you want to delete a field,
+              click on the trash can icon.
+            </p>
+
+            <!-- Botón para abrir el modal -->
+            <button
+              class="btn btn-primary mb-3"
+              data-bs-toggle="modal"
+              data-bs-target="#customerInfoModal"
+            >
+              Add Options
+            </button>
+
+            <!-- List group donde se mostrarán los campos seleccionados -->
+            <ul class="list-group" id="customerInfoList">
+              <!-- Se agregarán dinámicamente los ítems seleccionados -->
+            </ul>
+          </div>
+        </div>
+      </div> <!-- /accordion-item -->
+
+    <!-- Receipt Components -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingReceiptComponents">
+        <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseReceiptComponents"
+            aria-expanded="false"
+            aria-controls="collapseReceiptComponents"
+        >
+            Receipt Components
+        </button>
+        </h2>
+        <div
+        id="collapseReceiptComponents"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingReceiptComponents"
+        >
+        <div class="accordion-body">
+            
+            <!-- 1) Header -->
+            <h5>Header</h5>
+            <div class="d-flex overflow-auto pb-2 mb-4" >
+            <!-- Opción 1 -->
+            <label
+                class="card me-3"
+                for="headerOption1"
+                style="min-width: 200px; display: inline-flex; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 1</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="headerOptions"
+                    id="headerOption1"
+                    value="headerOpt1"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 2 -->
+            <label
+                class="card me-3"
+                for="headerOption2"
+                style="min-width: 200px; display: inline-flex; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 2</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="headerOptions"
+                    id="headerOption2"
+                    value="headerOpt2"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 3 -->
+            <label
+                class="card me-3"
+                for="headerOption3"
+                style="min-width: 200px; display: inline-flex; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 3</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="headerOptions"
+                    id="headerOption3"
+                    value="headerOpt3"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 4 -->
+            <label
+                class="card me-3"
+                for="headerOption4"
+                style="min-width: 200px; display: inline-flex; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 4</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="headerOptions"
+                    id="headerOption4"
+                    value="headerOpt4"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Tarjeta "View all ->" (sin radio) -->
+            <div
+                class="card me-3"
+                style="min-width: 200px; display: inline-flex;"
+            >
+                <div
+                class="card-body d-flex justify-content-center align-items-center"
+                
+                >
+                <span>View all -&gt;</span>
+                </div>
+            </div>
+            </div>
+    
+            <!-- 2) Disclaimer -->
+            <h5>Disclaimer</h5>
+            <div class="d-flex overflow-auto mb-4" >
+            <!-- Repite la misma estructura de tarjetas (Option 1..4 + View all) -->
+            <!-- Cambia el 'name' del radio a disclaimerOptions, y el id/value a disclaimerOptN -->
+            <label
+                class="card me-3"
+                for="disclaimerOption1"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 1</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="disclaimerOptions"
+                    id="disclaimerOption1"
+                    value="disclaimerOpt1"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 2 -->
+            <label
+                class="card me-3"
+                for="disclaimerOption2"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 2</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="disclaimerOptions"
+                    id="disclaimerOption2"
+                    value="disclaimerOpt2"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 3 -->
+            <label
+                class="card me-3"
+                for="disclaimerOption3"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 3</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="disclaimerOptions"
+                    id="disclaimerOption3"
+                    value="disclaimerOpt3"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 4 -->
+            <label
+                class="card me-3"
+                for="disclaimerOption4"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 4</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="disclaimerOptions"
+                    id="disclaimerOption4"
+                    value="disclaimerOpt4"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- "View all ->" -->
+            <div
+                class="card me-3"
+                style="min-width: 200px; display: inline-flex;"
+            >
+                <div
+                class="card-body d-flex justify-content-center align-items-center"
+                
+                >
+                <span>View all -&gt;</span>
+                </div>
+            </div>
+            </div>
+    
+            <!-- 3) Credit/Debit Receipt Disclaimer -->
+            <h5>Credit/Debit Receipt Disclaimer</h5>
+            <div class="d-flex overflow-auto mb-4" >
+            <!-- Mismo patrón, con name="ccDisclaimerOptions", id/value="ccDisclaimerOptN" -->
+            <label
+                class="card me-3"
+                for="ccDisclaimerOption1"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 1</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccDisclaimerOptions"
+                    id="ccDisclaimerOption1"
+                    value="ccDisclaimerOpt1"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 2 -->
+            <label
+                class="card me-3"
+                for="ccDisclaimerOption2"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 2</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccDisclaimerOptions"
+                    id="ccDisclaimerOption2"
+                    value="ccDisclaimerOpt2"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 3 -->
+            <label
+                class="card me-3"
+                for="ccDisclaimerOption3"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 3</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccDisclaimerOptions"
+                    id="ccDisclaimerOption3"
+                    value="ccDisclaimerOpt3"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- Opción 4 -->
+            <label
+                class="card me-3"
+                for="ccDisclaimerOption4"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 4</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccDisclaimerOptions"
+                    id="ccDisclaimerOption4"
+                    value="ccDisclaimerOpt4"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- "View all ->" -->
+            <div
+                class="card me-3"
+                style="min-width: 200px; display: inline-flex;"
+            >
+                <div
+                class="card-body d-flex justify-content-center align-items-center"
+                
+                >
+                <span>View all -&gt;</span>
+                </div>
+            </div>
+            </div>
+    
+            <!-- 4) Footer -->
+            <h5>Footer</h5>
+            <div class="d-flex overflow-auto mb-4" >
+            <!-- Mismo patrón, name="footerOptions", id="footerOptionN" -->
+            <label
+                class="card me-3"
+                for="footerOption1"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 1</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="footerOptions"
+                    id="footerOption1"
+                    value="footerOpt1"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+            <!-- Opción 2 -->
+            <label
+                class="card me-3"
+                for="footerOption2"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 2</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="footerOptions"
+                    id="footerOption2"
+                    value="footerOpt2"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+            <!-- Opción 3 -->
+            <label
+                class="card me-3"
+                for="footerOption3"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 3</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="footerOptions"
+                    id="footerOption3"
+                    value="footerOpt3"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+            <!-- Opción 4 -->
+            <label
+                class="card me-3"
+                for="footerOption4"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 4</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="footerOptions"
+                    id="footerOption4"
+                    value="footerOpt4"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- "View all ->" -->
+            <div
+                class="card me-3"
+                style="min-width: 200px; display: inline-flex;"
+            >
+                <div
+                class="card-body d-flex justify-content-center align-items-center"
+                
+                >
+                <span>View all -&gt;</span>
+                </div>
+            </div>
+            </div>
+    
+            <!-- 5) Credit/Debit Receipt Footer -->
+            <h5>Credit/Debit Receipt Footer</h5>
+            <div class="d-flex overflow-auto" >
+            <!-- Mismo patrón, name="ccFooterOptions", id="ccFooterOptionN" -->
+            <label
+                class="card me-3"
+                for="ccFooterOption1"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 1</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccFooterOptions"
+                    id="ccFooterOption1"
+                    value="ccFooterOpt1"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+            <!-- Opción 2 -->
+            <label
+                class="card me-3"
+                for="ccFooterOption2"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 2</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccFooterOptions"
+                    id="ccFooterOption2"
+                    value="ccFooterOpt2"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+            <!-- Opción 3 -->
+            <label
+                class="card me-3"
+                for="ccFooterOption3"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 3</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccFooterOptions"
+                    id="ccFooterOption3"
+                    value="ccFooterOpt3"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+            <!-- Opción 4 -->
+            <label
+                class="card me-3"
+                for="ccFooterOption4"
+                style="min-width: 200px; cursor: pointer;"
+            >
+                <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="card-title mb-0">Option 4</h6>
+                    <input
+                    class="form-check-input"
+                    type="radio"
+                    name="ccFooterOptions"
+                    id="ccFooterOption4"
+                    value="ccFooterOpt4"
+                    />
+                </div>
+                <p class="card-text">Short description.</p>
+                </div>
+            </label>
+    
+            <!-- "View all ->" -->
+            <div
+                class="card me-3"
+                style="min-width: 200px; display: inline-flex;"
+            >
+                <div
+                class="card-body d-flex justify-content-center align-items-center"
+                
+                >
+                <span>View all -&gt;</span>
+                </div>
+            </div>
+            </div>
+    
+        </div> <!-- /accordion-body -->
+        </div> <!-- /collapseReceiptComponents -->
+    </div> <!-- /accordion-item -->
+  
+  
+    </div> <!-- /accordion -->
+  </div> <!-- /container -->
+
+  <!-- Modal para seleccionar tickets -->
+  <div
+    class="modal fade"
+    id="ticketModal"
+    tabindex="-1"
+    aria-labelledby="ticketModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ticketModalLabel">Select Tickets</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p>Select the tickets you want to enable for validation:</p>
+          <!-- Listado de 6 tickets con checkboxes -->
+          <div class="form-check mb-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ticketItem"
+              value="Ticket A"
+              id="ticketA"
+            />
+            <label class="form-check-label" for="ticketA">Ticket A</label>
+          </div>
+          <div class="form-check mb-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ticketItem"
+              value="Ticket B"
+              id="ticketB"
+            />
+            <label class="form-check-label" for="ticketB">Ticket B</label>
+          </div>
+          <div class="form-check mb-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ticketItem"
+              value="Ticket C"
+              id="ticketC"
+            />
+            <label class="form-check-label" for="ticketC">Ticket C</label>
+          </div>
+          <div class="form-check mb-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ticketItem"
+              value="Ticket D"
+              id="ticketD"
+            />
+            <label class="form-check-label" for="ticketD">Ticket D</label>
+          </div>
+          <div class="form-check mb-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ticketItem"
+              value="Ticket E"
+              id="ticketE"
+            />
+            <label class="form-check-label" for="ticketE">Ticket E</label>
+          </div>
+          <div class="form-check mb-1">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ticketItem"
+              value="Ticket F"
+              id="ticketF"
+            />
+            <label class="form-check-label" for="ticketF">Ticket F</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="updateTicketsBtn"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal -->
+
+  <!-- Modal para seleccionar campos de Customer Info -->
+  <div
+  class="modal fade"
+  id="customerInfoModal"
+  tabindex="-1"
+  aria-labelledby="customerInfoModalLabel"
+  aria-hidden="true"
+  >
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customerInfoModalLabel">Select Customer Info Fields</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>Mark the fields you want to enable:</p>
+        
+        <!-- Checkboxes con todos los campos disponibles -->
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldCity"
+            value="City"
+          />
+          <label class="form-check-label" for="fieldCity">City</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldComments"
+            value="Comments"
+          />
+          <label class="form-check-label" for="fieldComments">Comments</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldCountry"
+            value="Country"
+          />
+          <label class="form-check-label" for="fieldCountry">Country</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldEmail"
+            value="Email Address"
+          />
+          <label class="form-check-label" for="fieldEmail">Email Address</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldPhoneNumber"
+            value="Phone Number"
+          />
+          <label class="form-check-label" for="fieldPhoneNumber">Phone Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldPostalCode"
+            value="Postal/ZIP Code"
+          />
+          <label class="form-check-label" for="fieldPostalCode">Postal/ZIP Code</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldProvinceState"
+            value="Province/State"
+          />
+          <label class="form-check-label" for="fieldProvinceState">Province/State</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldStreetAddress"
+            value="Street Address"
+          />
+          <label class="form-check-label" for="fieldStreetAddress">Street Address</label>
+        </div>
+        
+        <!-- Separador (puede ser un <hr />) -->
+        <hr />
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldAlternateAccountNumber"
+            value="Alternate Account Number"
+          />
+          <label class="form-check-label" for="fieldAlternateAccountNumber">Alternate Account Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldCharterName"
+            value="Charter Name"
+          />
+          <label class="form-check-label" for="fieldCharterName">Charter Name</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldConfirmationNumber"
+            value="Confirmation Number"
+          />
+          <label class="form-check-label" for="fieldConfirmationNumber">Confirmation Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldCustomerName"
+            value="Customer Name"
+          />
+          <label class="form-check-label" for="fieldCustomerName">Customer Name</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldInvoiceNumber"
+            value="Invoice Number"
+          />
+          <label class="form-check-label" for="fieldInvoiceNumber">Invoice Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldLicenseNumber"
+            value="License Number"
+          />
+          <label class="form-check-label" for="fieldLicenseNumber">License Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldPickupLocation"
+            value="Pickup Location"
+          />
+          <label class="form-check-label" for="fieldPickupLocation">Pickup Location</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldPurchaseOrder"
+            value="Purchase Order"
+          />
+          <label class="form-check-label" for="fieldPurchaseOrder">Purchase Order</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldQuantity"
+            value="Quantity"
+          />
+          <label class="form-check-label" for="fieldQuantity">Quantity</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldRecordNumber"
+            value="Record Number"
+          />
+          <label class="form-check-label" for="fieldRecordNumber">Record Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldRoomNumber"
+            value="Room Number"
+          />
+          <label class="form-check-label" for="fieldRoomNumber">Room Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldRow"
+            value="Row"
+          />
+          <label class="form-check-label" for="fieldRow">Row</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldSeat"
+            value="Seat"
+          />
+          <label class="form-check-label" for="fieldSeat">Seat</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldSection"
+            value="Section"
+          />
+          <label class="form-check-label" for="fieldSection">Section</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldTableNumber"
+            value="Table Number"
+          />
+          <label class="form-check-label" for="fieldTableNumber">Table Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldTelephoneNumber"
+            value="Telephone Number"
+          />
+          <label class="form-check-label" for="fieldTelephoneNumber">Telephone Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldVehicle"
+            value="Vehicle"
+          />
+          <label class="form-check-label" for="fieldVehicle">Vehicle</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldVoucherNumber"
+            value="Voucher Number"
+          />
+          <label class="form-check-label" for="fieldVoucherNumber">Voucher Number</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="customerInfoFields"
+            id="fieldWayBill"
+            value="Way Bill"
+          />
+          <label class="form-check-label" for="fieldWayBill">Way Bill</label>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="updateCustomerInfoBtn"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script>
+    // Mostrar / Ocultar opciones en "Void"
+    document.getElementById('voidSwitch').addEventListener('change', function() {
+      document.getElementById('voidOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Mostrar / Ocultar opciones en "Grant access to this profile for validating selected tickets"
+    document.getElementById('ticketValidation').addEventListener('change', function() {
+      document.getElementById('ticketValidationOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Mostrar / Ocultar opciones de "Voucher"
+    document.getElementById('voucherSwitch').addEventListener('change', function() {
+      document.getElementById('voucherOptions').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Mostrar / Ocultar campos de "Custom method"
+    const customPaymentCheckbox = document.getElementById('customPayment');
+    const customPaymentFields = document.getElementById('customPaymentFields');
+
+    customPaymentCheckbox.addEventListener('change', function() {
+      customPaymentFields.style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Manejo de la selección de tickets (al hacer clic en "Update")
+    const updateTicketsBtn = document.getElementById('updateTicketsBtn');
+    const selectedTicketsList = document.getElementById('selectedTicketsList');
+
+    updateTicketsBtn.addEventListener('click', function() {
+      // Obtener los checkboxes seleccionados en el modal
+      const ticketCheckboxes = document.querySelectorAll('input[name="ticketItem"]:checked');
+      
+      // Limpiar la lista antes de agregar la nueva selección
+      selectedTicketsList.innerHTML = '';
+
+      // Agregar cada ticket seleccionado como <li> en la list-group
+      ticketCheckboxes.forEach((checkbox) => {
+        const li = document.createElement('li');
+        li.classList.add('list-group-item');
+        li.textContent = checkbox.value;
+        selectedTicketsList.appendChild(li);
+      });
+
+      // Cerrar el modal manualmente usando Bootstrap 5
+      const ticketModal = document.getElementById('ticketModal');
+      const modalInstance = bootstrap.Modal.getInstance(ticketModal);
+      modalInstance.hide();
+    });
+
+    /*******************************************
+     * Customer Info
+     *******************************************/
+    // Almacén temporal de campos seleccionados (puede ser Set para evitar duplicados)
+    let selectedCustomerInfoFields = new Set();
+
+    // Referencias a elementos
+    const updateCustomerInfoBtn = document.getElementById('updateCustomerInfoBtn');
+    const customerInfoList = document.getElementById('customerInfoList');
+    const customerInfoModal = document.getElementById('customerInfoModal');
+
+    // Función para renderizar la lista en el <ul> (customerInfoList)
+    function renderCustomerInfoList() {
+      // Limpiar contenido actual
+      customerInfoList.innerHTML = '';
+
+      // Convertir el Set en un array y recorrerlo
+      Array.from(selectedCustomerInfoFields).forEach((fieldValue) => {
+        // Crear <li>
+        const li = document.createElement('li');
+        li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+        li.textContent = fieldValue;
+
+        // Botón de eliminar
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('btn', 'btn-sm', 'btn-outline-danger');
+        removeBtn.innerHTML = '<i class="bi bi-trash"></i>'; // Icono de Bootstrap (requiere Bootstrap Icons) o usa tu icono preferido
+        
+        // Acción al hacer clic en eliminar
+        removeBtn.addEventListener('click', () => {
+          // Remover del set
+          selectedCustomerInfoFields.delete(fieldValue);
+          // Volver a pintar la lista
+          renderCustomerInfoList();
+        });
+
+        // Añadir el botón al <li>
+        li.appendChild(removeBtn);
+
+        // Añadir <li> al ul
+        customerInfoList.appendChild(li);
+      });
+    }
+
+    // Manejo de la selección de campos al hacer clic en "Update"
+    updateCustomerInfoBtn.addEventListener('click', () => {
+      // Obtener los checkboxes en el modal
+      const checkboxes = document.querySelectorAll('input[name="customerInfoFields"]');
+      
+      // Actualizar el Set de campos seleccionados
+      selectedCustomerInfoFields.clear();
+      
+      checkboxes.forEach((cb) => {
+        if (cb.checked) {
+          selectedCustomerInfoFields.add(cb.value);
+        }
+      });
+
+      // Renderizar la lista con los nuevos campos
+      renderCustomerInfoList();
+
+      // Cerrar el modal manualmente (Bootstrap 5)
+      const modalInstance = bootstrap.Modal.getInstance(customerInfoModal);
+      modalInstance.hide();
+    });
+
+    // Sincronizar la vista de checkboxes en el modal con el Set cada vez que se abra el modal
+    customerInfoModal.addEventListener('show.bs.modal', () => {
+      const checkboxes = document.querySelectorAll('input[name="customerInfoFields"]');
+      checkboxes.forEach((cb) => {
+        // Marcar como checked si está en el Set
+        cb.checked = selectedCustomerInfoFields.has(cb.value);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // Objeto para llevar el rastro del radio seleccionado en cada grupo
+    const lastSelectedForGroup = {};
+
+    // Obtener todos los radios
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+    radioButtons.forEach((radio) => {
+      radio.addEventListener('click', () => {
+        // Identificar a qué grupo (name) pertenece este radio
+        const groupName = radio.name;
+
+        // Si el radio se marca como checked...
+        if (radio.checked) {
+          // ...verificamos si es el mismo que ya estaba seleccionado
+          if (lastSelectedForGroup[groupName] === radio) {
+            // Si es el mismo, lo desmarcamos (toggle off)
+            radio.checked = false;
+            // Quitamos el registro en lastSelectedForGroup
+            lastSelectedForGroup[groupName] = null;
+          } else {
+            // Si es un radio distinto al último seleccionado
+            // simplemente actualizamos el último seleccionado para este grupo
+            lastSelectedForGroup[groupName] = radio;
+          }
+        }
+      });
+    });
+  });
+
+
+  </script>
+
+  <hr>
+  
+</body>
+</html>
