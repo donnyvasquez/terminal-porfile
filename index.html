@@ -1006,7 +1006,209 @@
         </div> <!-- /accordion-body -->
         </div> <!-- /collapseReceiptComponents -->
     </div> <!-- /accordion-item -->
+    
+    <!-- Customer Receipt Options -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCustomerReceipt">
+        <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseCustomerReceipt"
+            aria-expanded="false"
+            aria-controls="collapseCustomerReceipt"
+        >
+            Customer Receipt Options
+        </button>
+        </h2>
+        <div
+        id="collapseCustomerReceipt"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingCustomerReceipt"
+        >
+        <div class="accordion-body">
+            <!-- Always Print -->
+            <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="customerAlwaysPrint" />
+            <label class="form-check-label" for="customerAlwaysPrint">Always Print</label>
+            </div>
+    
+            <!-- Transacciones habilitadas -->
+            <div class="mb-3">
+            <p class="fw-bold">Enabled Transactions:</p>
+            <div class="form-check">
+                <input class="form-check-input customer-transaction" type="checkbox" id="customerPurchase" checked />
+                <label class="form-check-label" for="customerPurchase">Purchase</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-transaction" type="checkbox" id="customerReturn" checked />
+                <label class="form-check-label" for="customerReturn">Return</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-transaction" type="checkbox" id="customerVoid" checked />
+                <label class="form-check-label" for="customerVoid">Void</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-transaction" type="checkbox" id="customerIssueVoucher" checked />
+                <label class="form-check-label" for="customerIssueVoucher">Issue Voucher</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-transaction" type="checkbox" id="customerRedeemVoucher" checked />
+                <label class="form-check-label" for="customerRedeemVoucher">Redeem Voucher</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-transaction" type="checkbox" id="customerValidateTickets" checked />
+                <label class="form-check-label" for="customerValidateTickets">Validate Tickets</label>
+            </div>
+            </div>
+    
+            <!-- Métodos de pago habilitados -->
+            <div class="mb-3">
+            <p class="fw-bold">Enabled Payment Methods:</p>
+            <div class="form-check">
+                <input class="form-check-input customer-payment" type="checkbox" id="customerCash" />
+                <label class="form-check-label" for="customerCash">Cash</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-payment" type="checkbox" id="customerBono" />
+                <label class="form-check-label" for="customerBono">Bono</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-payment" type="checkbox" id="customerCredit" />
+                <label class="form-check-label" for="customerCredit">Credit</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input customer-payment" type="checkbox" id="customerCustomMethod" />
+                <label class="form-check-label" for="customerCustomMethod">Custom method</label>
+            </div>
+            </div>
+    
+            <!-- Opciones de recibo -->
+            <div class="mb-3">
+            <p class="fw-bold">Receipt Options:</p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="customerItemized" />
+                <label class="form-check-label" for="customerItemized">Itemized</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="customerLogo" />
+                <label class="form-check-label" for="customerLogo">Logo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="customerPromptForReceipt" />
+                <label class="form-check-label" for="customerPromptForReceipt">Prompt For Receipt</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="customerReprint" />
+                <label class="form-check-label" for="customerReprint">Reprint</label>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-- Merchant Receipt Options -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingMerchantReceipt">
+        <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseMerchantReceipt"
+            aria-expanded="false"
+            aria-controls="collapseMerchantReceipt"
+        >
+            Merchant Receipt Options
+        </button>
+        </h2>
+        <div
+        id="collapseMerchantReceipt"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingMerchantReceipt"
+        >
+        <div class="accordion-body">
+            <!-- Always Print -->
+            <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="merchantAlwaysPrint" />
+            <label class="form-check-label" for="merchantAlwaysPrint">Always Print</label>
+            </div>
+    
+            <!-- Transacciones habilitadas -->
+            <div class="mb-3">
+            <p class="fw-bold">Enabled Transactions:</p>
+            <div class="form-check">
+                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantPurchase" />
+                <label class="form-check-label" for="merchantPurchase">Purchase</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantReturn" />
+                <label class="form-check-label" for="merchantReturn">Return</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantVoid" />
+                <label class="form-check-label" for="merchantVoid">Void</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantIssueVoucher" />
+                <label class="form-check-label" for="merchantIssueVoucher">Issue Voucher</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantRedeemVoucher" />
+                <label class="form-check-label" for="merchantRedeemVoucher">Redeem Voucher</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-transaction" type="checkbox" id="merchantValidateTickets" />
+                <label class="form-check-label" for="merchantValidateTickets">Validate Tickets</label>
+            </div>
+            </div>
+    
+            <!-- Métodos de pago habilitados -->
+            <div class="mb-3">
+            <p class="fw-bold">Enabled Payment Methods:</p>
+            <div class="form-check">
+                <input class="form-check-input merchant-payment" type="checkbox" id="merchantCash" />
+                <label class="form-check-label" for="merchantCash">Cash</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-payment" type="checkbox" id="merchantBono" />
+                <label class="form-check-label" for="merchantBono">Bono</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-payment" type="checkbox" id="merchantCredit" />
+                <label class="form-check-label" for="merchantCredit">Credit</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input merchant-payment" type="checkbox" id="merchantCustomMethod" />
+                <label class="form-check-label" for="merchantCustomMethod">Custom method</label>
+            </div>
+            </div>
+    
+            <!-- Opciones de recibo -->
+            <div class="mb-3">
+            <p class="fw-bold">Receipt Options:</p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="merchantItemized" />
+                <label class="form-check-label" for="merchantItemized">Itemized</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="merchantLogo" />
+                <label class="form-check-label" for="merchantLogo">Logo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="merchantSignatureCapture" />
+                <label class="form-check-label" for="merchantSignatureCapture">Signature Capture</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="merchantReprint" />
+                <label class="form-check-label" for="merchantReprint">Reprint</label>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
   
+  
+
   
     </div> <!-- /accordion -->
   </div> <!-- /container -->
@@ -1589,6 +1791,44 @@
       });
     });
   });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Función para configurar el comportamiento de 'Always Print'
+        const setupAlwaysPrint = (alwaysPrintId, checkboxesClasses) => {
+            const alwaysPrintCheckbox = document.getElementById(alwaysPrintId);
+            // Obtenemos todos los checkboxes para las clases proporcionadas
+            const checkboxes = checkboxesClasses.reduce((acc, cls) => [
+            ...acc, 
+            ...document.querySelectorAll(`.${cls}`)
+            ], []);
+
+            // Manejar el cambio en 'Always Print'
+            alwaysPrintCheckbox.addEventListener('change', () => {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = alwaysPrintCheckbox.checked;
+            });
+            });
+
+            // Actualizar el estado de 'Always Print' basado en los checkboxes individuales
+            const updateAlwaysPrintStatus = () => {
+            const allChecked = checkboxes.every(checkbox => checkbox.checked);
+            alwaysPrintCheckbox.checked = allChecked;
+            };
+
+            // Agregar evento 'change' a cada checkbox
+            checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                updateAlwaysPrintStatus();
+            });
+            });
+        };
+
+        // Configurar para las opciones de recibo del cliente
+        setupAlwaysPrint('customerAlwaysPrint', ['customer-transaction', 'customer-payment']);
+
+        // Configurar para las opciones de recibo del comerciante
+        setupAlwaysPrint('merchantAlwaysPrint', ['merchant-transaction', 'merchant-payment']);
+    });
 
 
   </script>
