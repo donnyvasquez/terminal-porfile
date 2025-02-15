@@ -1044,8 +1044,8 @@
                     <label class="form-check-label" for="customerPurchase">Purchase</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input customer-transaction" type="checkbox" id="customerReturn" checked />
-                    <label class="form-check-label" for="customerReturn">Return</label>
+                    <input class="form-check-input customer-transaction" type="checkbox" id="customerRefund" checked />
+                    <label class="form-check-label" for="customerRefund">Refund</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input customer-transaction" type="checkbox" id="customerVoid" checked />
@@ -1154,8 +1154,8 @@
                             <label class="form-check-label" for="merchantPurchase">Purchase</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantReturn" />
-                            <label class="form-check-label" for="merchantReturn">Return</label>
+                            <input class="form-check-input merchant-transaction" type="checkbox" id="merchantRefund" />
+                            <label class="form-check-label" for="merchantRefund">Refund</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input merchant-transaction" type="checkbox" id="merchantVoid" />
@@ -1291,66 +1291,73 @@
         </div>
         <div class="modal-body">
           <p>Select the tickets you want to enable for validation:</p>
+
+          <div class="form-check my-2">
+            <input class="form-check-input" type="checkbox" id="selectAllTickets" />
+            <label class="form-check-label fw-bold" for="selectAllTickets">Select all tickets</label>
+          </div>
           <!-- Listado de 6 tickets con checkboxes -->
-          <div class="form-check mb-1">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="ticketItem"
-              value="Ticket A"
-              id="ticketA"
-            />
-            <label class="form-check-label" for="ticketA">Ticket A</label>
-          </div>
-          <div class="form-check mb-1">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="ticketItem"
-              value="Ticket B"
-              id="ticketB"
-            />
-            <label class="form-check-label" for="ticketB">Ticket B</label>
-          </div>
-          <div class="form-check mb-1">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="ticketItem"
-              value="Ticket C"
-              id="ticketC"
-            />
-            <label class="form-check-label" for="ticketC">Ticket C</label>
-          </div>
-          <div class="form-check mb-1">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="ticketItem"
-              value="Ticket D"
-              id="ticketD"
-            />
-            <label class="form-check-label" for="ticketD">Ticket D</label>
-          </div>
-          <div class="form-check mb-1">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="ticketItem"
-              value="Ticket E"
-              id="ticketE"
-            />
-            <label class="form-check-label" for="ticketE">Ticket E</label>
-          </div>
-          <div class="form-check mb-1">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="ticketItem"
-              value="Ticket F"
-              id="ticketF"
-            />
-            <label class="form-check-label" for="ticketF">Ticket F</label>
+          <div id="validateTickets">
+            <div class="form-check mb-1">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="ticketItem"
+                value="Ticket A"
+                id="ticketA"
+              />
+              <label class="form-check-label" for="ticketA">Ticket A</label>
+            </div>
+            <div class="form-check mb-1">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="ticketItem"
+                value="Ticket B"
+                id="ticketB"
+              />
+              <label class="form-check-label" for="ticketB">Ticket B</label>
+            </div>
+            <div class="form-check mb-1">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="ticketItem"
+                value="Ticket C"
+                id="ticketC"
+              />
+              <label class="form-check-label" for="ticketC">Ticket C</label>
+            </div>
+            <div class="form-check mb-1">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="ticketItem"
+                value="Ticket D"
+                id="ticketD"
+              />
+              <label class="form-check-label" for="ticketD">Ticket D</label>
+            </div>
+            <div class="form-check mb-1">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="ticketItem"
+                value="Ticket E"
+                id="ticketE"
+              />
+              <label class="form-check-label" for="ticketE">Ticket E</label>
+            </div>
+            <div class="form-check mb-1">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="ticketItem"
+                value="Ticket F"
+                id="ticketF"
+              />
+              <label class="form-check-label" for="ticketF">Ticket F</label>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -1385,7 +1392,7 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="customerInfoModalLabel">Select Customer Info Fields</h5>
+        <h5 class="modal-title" id="customerInfoModalLabel">Select Customer Informatin Fields</h5>
         <button
           type="button"
           class="btn-close"
@@ -1895,6 +1902,30 @@
             // Toggle visibility based on the switch state
             reportOptions.style.display = reportSwitch.checked ? 'block' : 'none';
         });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectAll = document.getElementById('selectAllTickets');
+      const ticketOptions = document.querySelectorAll('#validateTickets .form-check-input');
+
+      // Función para actualizar el estado de todos los checkboxes subordinados
+      function updateTicketSelection() {
+        const allChecked = Array.from(ticketOptions).every(checkbox => checkbox.checked);
+        selectAll.checked = allChecked;
+      }
+
+      // Evento para el checkbox maestro (Select All)
+      selectAll.addEventListener('change', () => {
+        Array.from(ticketOptions).forEach(checkbox => {
+          checkbox.checked = selectAll.checked;
+        });
+      });
+
+      // Eventos para cada checkbox subordinado
+      Array.from(ticketOptions).forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          updateTicketSelection();
+        });
+      });
     });
 
   </script>
